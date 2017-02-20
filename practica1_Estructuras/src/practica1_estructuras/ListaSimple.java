@@ -1,17 +1,19 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package practica1_estructuras;
 
 /**
  *
  * @author Randolph
  */
-public class ListaSimple1 {
-
+public class ListaSimple {
 private Nodo inicio;
-
 private int tamanio;
 
-public void ListaSimple1()
+public void ListaSimple()
 {
     inicio = null;
     tamanio = 0;
@@ -113,6 +115,21 @@ public void removerPorReferencia(String referencia){
     tamanio--;
     }
    
+}
+
+public void listar(){
+    if(!estaVacia()){
+        Nodo aux =inicio;
+        int i = 0;
+        
+        while(aux !=null){
+            System.out.println(i+".["+aux.getValor()+"]"+"-> ");
+            aux = aux.getSiguiente();
+            i++;
+        }
+    }
+    
+    
 }
 
 }
