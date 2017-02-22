@@ -114,8 +114,10 @@ inicializarJugador();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        Tablero tab = new Tablero();
-       tab.show();
-        
+    
+     Grafo grafo = new Grafo();
+     grafo.operacionGrafoJugador();
+      tab.show();
       //  ClaseGlobal.listaCircular.listar();
         
     }//GEN-LAST:event_jButton2ActionPerformed

@@ -5,6 +5,8 @@
  */
 package practica1_estructuras;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,14 +14,17 @@ import javax.swing.JOptionPane;
  * @author Randolph
  */
 public class Tablero extends javax.swing.JFrame {
-private  int contJugador = 0;
+
+    private int contJugador = 0;
+
     /**
      * Creates new form Tablero
      */
     public Tablero() {
-       
+
         initComponents();
-       iniciarTablero();
+        iniciarTablero();
+        generarImagen();
     }
 
     /**
@@ -42,6 +47,7 @@ private  int contJugador = 0;
         jLabel1 = new javax.swing.JLabel();
         lblNombreUsuario = new javax.swing.JLabel();
         btnValidaTiro = new javax.swing.JButton();
+        lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +77,8 @@ private  int contJugador = 0;
             }
         });
 
+        lblImagen.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,45 +86,51 @@ private  int contJugador = 0;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel1)))
+                        .addGap(19, 19, 19)
+                        .addComponent(btnLetra1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLetra2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLetra3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLetra4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLetra5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(btnValidaTiro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLetra6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnLetra7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(btnLetra1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLetra2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLetra3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLetra4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnLetra5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(btnValidaTiro, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLetra6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLetra7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addComponent(lblNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -136,22 +150,26 @@ private  int contJugador = 0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnValidaTiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidaTiroActionPerformed
-      int vartempo = ClaseGlobal.listaCircular.getTamanio();
-        if (contJugador<vartempo){
-            contJugador++;
-            String nombreUsu = ClaseGlobal.listaCircular.getValorStringXPos(contJugador);
-   lblNombreUsuario.setText(nombreUsu);
-    casillasLetraRefresh(nombreUsu);    
-        }else if (contJugador==vartempo){
-            JOptionPane.showMessageDialog(null, "si esta entrando correctamente");
-          //  contJugador = 0;
-  // String nombreUsu = ClaseGlobal.listaCircular.getValorStringXPos(contJugador);
-   //lblNombreUsuario.repaint();
-  // lblNombreUsuario.setText(nombreUsu);
-  // casillasLetraRefresh(nombreUsu);
+        try {
+            int vartempo = ClaseGlobal.listaCircular.getTamanio();
+            if (contJugador < vartempo) {
+                contJugador++;
+                String nombreUsu = ClaseGlobal.listaCircular.getValorStringXPos(contJugador);
+                lblNombreUsuario.setText(nombreUsu);
+                casillasLetraRefresh(nombreUsu);
+            }  else if (contJugador==vartempo){
+          contJugador = 0;
+         String nombreUsu = ClaseGlobal.listaCircular.getValorStringXPos(contJugador);
+        lblNombreUsuario.repaint();
+         lblNombreUsuario.setText(nombreUsu);
+         casillasLetraRefresh(nombreUsu);
         }
-        
-        
+
+        } catch (Exception e) {
+        }
+
+
+
     }//GEN-LAST:event_btnValidaTiroActionPerformed
 
     /**
@@ -200,26 +218,55 @@ private  int contJugador = 0;
     private javax.swing.JButton btnValidaTiro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblNombreUsuario;
     // End of variables declaration//GEN-END:variables
 
-public void iniciarTablero(){
-String nombreUsu = ClaseGlobal.listaCircular.getValorStringXPos(contJugador);
-   lblNombreUsuario.setText(nombreUsu);
-    casillasLetraRefresh(nombreUsu);
-   
-}
+    public void iniciarTablero() {
+        String nombreUsu = ClaseGlobal.listaCircular.getValorStringXPos(contJugador);
+        lblNombreUsuario.setText(nombreUsu);
+        casillasLetraRefresh(nombreUsu);
 
-public void casillasLetraRefresh(String nombreUsuario){
-       ListaSimple tempoFicha = new ListaSimple();
-   tempoFicha = ClaseGlobal.listaCircular.getLista(nombreUsuario);
-   btnLetra1.setText(tempoFicha.obtenerValorNodo(0));
-   btnLetra2.setText(tempoFicha.obtenerValorNodo(1));
-   btnLetra3.setText(tempoFicha.obtenerValorNodo(2));
-   btnLetra4.setText(tempoFicha.obtenerValorNodo(3));
-   btnLetra5.setText(tempoFicha.obtenerValorNodo(4));
-   btnLetra6.setText(tempoFicha.obtenerValorNodo(5));
-   btnLetra7.setText(tempoFicha.obtenerValorNodo(6));
-}
+    }
 
+    public void casillasLetraRefresh(String nombreUsuario) {
+        ListaSimple tempoFicha = new ListaSimple();
+        tempoFicha = ClaseGlobal.listaCircular.getLista(nombreUsuario);
+        btnLetra1.setText(tempoFicha.obtenerValorNodo(0));
+        btnLetra2.setText(tempoFicha.obtenerValorNodo(1));
+        btnLetra3.setText(tempoFicha.obtenerValorNodo(2));
+        btnLetra4.setText(tempoFicha.obtenerValorNodo(3));
+        btnLetra5.setText(tempoFicha.obtenerValorNodo(4));
+        btnLetra6.setText(tempoFicha.obtenerValorNodo(5));
+        btnLetra7.setText(tempoFicha.obtenerValorNodo(6));
+    }
+    
+    public void generarImagen(){
+try{
+
+  esperarXSegundos(2);
+Image grafo = new ImageIcon("c:/grafos/grafoJugador.jpg").getImage();
+grafo.flush();
+//ImageIcon icono = new ImageIcon(grafo.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_DEFAULT));
+lblImagen.setIcon(null);
+lblImagen.setIcon(new  ImageIcon(grafo)); 
+        
+        
+    } catch (Exception e) {
+     JOptionPane.showMessageDialog(null, "Hubo problemas con la Imagen");   
+    }   
+    }
+    
+    public void esperarXSegundos(int segundos){
+    
+    try {
+        
+    Thread.sleep(segundos * 1000);
+        
+    } catch (Exception e) {
+        Thread.currentThread().interrupt();
+    }
+    
+}
+    
 }
