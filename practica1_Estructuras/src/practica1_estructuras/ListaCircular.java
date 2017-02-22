@@ -73,8 +73,30 @@ public class ListaCircular {
          
     }
     
-    //obtener por posicion
-   public ListaSimple getValorXPos(int posicion){
+    public String getValorStringXPos(int posicion){
+               
+       if(posicion>=0 && posicion<tamanio){
+           if(posicion==0){
+               return inicio.getValorString();
+           }else{
+               NodoCircular aux = inicio;
+               for(int i =0; i<posicion;i++){
+                   aux = aux.getSiguiente();
+               }
+               return aux.getValorString();
+           }
+       }else{
+       //throw new Exception("Posicion inexistente en la lista");
+       
+   }
+       return null;
+    }
+    
+
+    
+    
+    //obtener lista por posicion
+   public ListaSimple getValorListaXPos(int posicion){
        
        if(posicion>=0 && posicion<tamanio){
            if(posicion==0){
@@ -128,18 +150,20 @@ public class ListaCircular {
    
    
     
-//public void listar()  {
-//if(!estaVacia()){
-//            NodoCircular aux = inicio;
-//            int i = 0;            
-//            do{
-//               System.out.println(i+".["+aux.getValorNumerico()+"  "+aux.getNombreId()+"]");
-//               aux = aux.getSiguiente();
-//               i++;
-//            }while(aux != inicio);
-//                
-//        }        
-//}  
+public void listar(){
+    if(!estaVacia()){
+        NodoCircular aux = inicio;
+        int i = 0;
+        System.out.println("-->");
+        do{
+            System.out.println(i+".["+aux.getValorString()+"]");
+            ListaSimple listTemp = new ListaSimple();
+            listTemp = aux.getValorLista();
+            listTemp.listar();            
+            aux = aux.getSiguiente();
+        }while(aux != inicio);
+    }
+}
     
     
     

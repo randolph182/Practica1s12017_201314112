@@ -10,11 +10,12 @@ package practica1_estructuras;
  * @author Randolph
  */
 public class Jugadores extends javax.swing.JFrame {
-
+private ColaFicha fichaCola= new ColaFicha();
     /**
      * Creates new form Jugadores
      */
     public Jugadores() {
+        fichaCola.moverLetraCola();
         initComponents();
     }
 
@@ -31,6 +32,7 @@ public class Jugadores extends javax.swing.JFrame {
         txtNombreJugador = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,6 +45,13 @@ public class Jugadores extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("preuba");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -61,7 +70,9 @@ public class Jugadores extends javax.swing.JFrame {
                 .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
@@ -75,33 +86,39 @@ public class Jugadores extends javax.swing.JFrame {
                 .addComponent(txtNombreJugador, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ListaSimple lista = new ListaSimple();
-        lista.agregarInicioLista("A");
-        lista.agregarInicioLista("B");
-        lista.agregarInicioLista("C");
-        lista.agregarInicioLista("D");
-        lista.agregarInicioLista("E");
-      String variableTemp = txtNombreJugador.getText();
-        ClaseGlobal.listaCircular.agregarAlInicio(variableTemp, lista);
-        Tablero  ejem = new Tablero();
-//        ejem.show();
-      ListaSimple tempo = new ListaSimple();
-        tempo = ClaseGlobal.listaCircular.getLista("hola");
-            tempo.listar();
-
-        
-
-
-
+//        ListaSimple lista = new ListaSimple();
+//        lista.agregarFinalLista("A");
+//        lista.agregarFinalLista("B");
+//        lista.agregarFinalLista("C");
+//        lista.agregarFinalLista("D");
+//        lista.agregarFinalLista("E");
+//      String variableTemp = txtNombreJugador.getText();
+//        ClaseGlobal.listaCircular.agregarAlInicio(variableTemp, lista);
+//        Tablero  ejem = new Tablero();
+////        ejem.show();
+//      ListaSimple tempo = new ListaSimple();
+//        tempo = ClaseGlobal.listaCircular.getLista("hola");
+//            tempo.listar();
+inicializarJugador();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       Tablero tab = new Tablero();
+       tab.show();
+        
+      //  ClaseGlobal.listaCircular.listar();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,8 +157,22 @@ public class Jugadores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtNombreJugador;
     // End of variables declaration//GEN-END:variables
+
+public void inicializarJugador(){
+    ListaSimple listaTemp = new ListaSimple();
+    //inicializo las fichas que le toca a cada jugador
+    for (int i = 0; i < 7; i++) {
+        listaTemp.agregarFinalLista(ClaseGlobal.colaLetras.obtenerValorNodo(i));
+        ClaseGlobal.colaLetras.eliminarXPos(i);
+        
+    }
+    ClaseGlobal.listaCircular.agregarAlFinal(txtNombreJugador.getText(), listaTemp);
+            
+}
+
 }

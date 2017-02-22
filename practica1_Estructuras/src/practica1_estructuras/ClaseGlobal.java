@@ -12,5 +12,6 @@ package practica1_estructuras;
 public class ClaseGlobal {
     public static ListaCircular listaCircular = new ListaCircular();
     public static String variableNombre;
+    public static ListaSimple colaLetras = new ListaSimple();
     
 }
